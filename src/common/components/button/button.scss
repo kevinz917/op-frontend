@@ -1,0 +1,34 @@
+@import "../../styles/colors.scss";
+
+.button-default {
+  color: black;
+  background-color: $primary;
+  padding: 12px 12px;
+  outline: none;
+  border-radius: 6px;
+  border-style: none;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 6px 0px;
+
+  min-width: 100px;
+  cursor: pointer;
+  transition: 0.2s;
+  display: inline-block;
+  text-align: center;
+}
+
+.button-default:hover {
+  background-color: $primary-dark;
+  transition: 0.2s;
+}
+
+.button-secondary {
+  color: $secondary !important;
+}
+
+.button-disabled {
+  pointer-events: none;
+  opacity: 0.3;
+  transform: none;
+}
