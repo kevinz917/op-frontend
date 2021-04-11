@@ -1,6 +1,12 @@
 .home-container {
-  max-width: 600px;
-  margin: auto;
+  width: 700px;
+  padding-top: 60px;
+  padding-left: 60px;
+}
+
+.action-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }

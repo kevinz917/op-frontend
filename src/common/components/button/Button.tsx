@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import { Link } from "react-router-dom";
 import classNames from "classnames";
 import "./button.scss";
 
@@ -8,7 +9,8 @@ interface buttonOwnProps {
   secondary?: boolean;
   type?: string;
   href?: string;
-  width?: string;
+  width?: number;
+  icon?: string;
 }
 
 export default class Button extends PureComponent<buttonOwnProps> {
@@ -30,14 +32,14 @@ export default class Button extends PureComponent<buttonOwnProps> {
 
     if (type === "link") {
       return (
-        <a
+        <Link
           className={cssClasses}
-          href={href}
+          to={href || ""}
           {...otherProps}
-          style={{ width: width }}
+          style={{ width: `${width}px` }}
         >
           {children}
-        </a>
+        </Link>
       );
     }
 

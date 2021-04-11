@@ -1,7 +1,7 @@
 @import "../../styles/colors.scss";
 
 .button-default {
-  color: black;
+  color: white;
   background-color: $primary;
   padding: 12px 12px;
   outline: none;
@@ -16,6 +16,10 @@
   transition: 0.2s;
   display: inline-block;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .button-default:hover {

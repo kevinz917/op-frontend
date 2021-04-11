@@ -1,14 +1,18 @@
 import Button from "../../common/components/button/Button";
+import Spacer from "../../common/components/spacer/Spacer";
 import "./home.scss";
 
 interface HomeProps {}
 
 const Home = (props: HomeProps) => {
-  console.log("Landing");
   return (
     <div className="home-container">
-      <div className="header2">Today's snapshots</div>
-      <Button>Hello</Button>
+      <div className="action-header">
+        <div className="header2">My memories</div>
+        <Button type="link" href={"/new"}>
+          New item
+        </Button>
+      </div>
     </div>
   );
 };

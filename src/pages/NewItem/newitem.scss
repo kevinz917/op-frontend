@@ -1,0 +1,11 @@
+.name-input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  margin-bottom: 12px;
+
+  .title-input-text {
+    width: 100px;
+    margin-right: 10px;
+  }
+}
