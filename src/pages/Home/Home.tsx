@@ -1,5 +1,4 @@
 import Button from "../../common/components/button/Button";
-import Spacer from "../../common/components/spacer/Spacer";
 import "./home.scss";
 
 interface HomeProps {}
