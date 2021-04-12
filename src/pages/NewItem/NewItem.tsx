@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import Bob from "../../Bob";
 import Button from "../../common/components/button/Button";
 import Input from "../../common/components/Input/Input";
+import Select from "../../common/components/SingleSelect/Select";
 import Spacer from "../../common/components/spacer/Spacer";
 import TextArea from "../../common/components/textArea/TextArea";
+import { formatValueLabelPair } from "./createItemHelpers";
 import "./newitem.scss";
+import { categoryOptions, frequencyOptions } from "./newItemStrings";
 
 interface newItemOwnProps {}
 
@@ -22,11 +24,6 @@ const NewItem = (props: newItemOwnProps) => {
         <Input value={name} onChange={(e) => setName(e.target.value)} />
       </div>
       <div className="name-input-container">
-        <div className="body2 title-input-text">Priority</div>
-        {/* change to dropdown */}
-        <Input value={priority} onChange={(e) => setPriority(e.target.value)} />
-      </div>
-      <div className="name-input-container">
         <div className="body2 title-input-text">Notes</div>
         <TextArea
           value={notes}
@@ -35,6 +32,18 @@ const NewItem = (props: newItemOwnProps) => {
           width={400}
         />
       </div>
+      <div className="name-input-container">
+        <div className="body2 title-input-text">Category</div>
+        <Select
+          options={formatValueLabelPair(categoryOptions)}
+          placeholder="Choose category"
+        />
+      </div>
+      <div className="name-input-container">
+        <div className="body2 title-input-text">Frequency</div>
+        <Select options={frequencyOptions} placeholder="Choose frequency" />
+      </div>
+
       <Spacer size="xlarge" />
       <Button>Add item</Button>
     </div>
