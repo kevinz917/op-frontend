@@ -8,14 +8,17 @@ import TextArea from '../../common/components/textArea/TextArea';
 import { formatValueLabelPair } from './createItemHelpers';
 import './newitem.scss';
 import { categoryOptions, frequencyOptions } from './newItemStrings';
-import createItemAction from '../../redux/actions/createItemAction';
+import createItemAction, { CREATE_ITEM_ACTIONS } from '../../redux/actions/createItemAction';
+import actionCreator from '../../redux/actionCreator';
 
 interface newItemOwnProps {
   setSavingTrue: () => void;
+  mockFetch: () => void;
 }
 
 const mapDispatchToActions = {
   setSavingTrue: () => createItemAction.setSavingTrue(),
+  mockFetch: () => createItemAction.beginMockFetch(),
 };
 
 const NewItem = (props: newItemOwnProps) => {
@@ -24,8 +27,9 @@ const NewItem = (props: newItemOwnProps) => {
   const [notes, setNotes] = useState('');
 
   useEffect(() => {
-    const { setSavingTrue } = props;
-    setSavingTrue();
+    // mock fetch using sagas
+    const { mockFetch } = props;
+    mockFetch();
   }, []);
 
   return (

@@ -58,6 +58,7 @@
     "prefer-destructuring": "warn",
     "comma-dangle": "off",
     "react/react-in-jsx-scope": "off",
-    "max-len": ["error", { "code": 120 }]
+    "max-len": ["error", { "code": 120 }],
+    "react/no-unused-prop-types": "warn"
   }
 }
