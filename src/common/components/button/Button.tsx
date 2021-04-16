@@ -49,6 +49,7 @@ export default class Button extends PureComponent<buttonOwnProps> {
         className={cssClasses}
         {...otherProps}
         style={{ width: width }}
+        type="button"
       >
         {children}
       </button>

@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import "./navbar.scss";
 
@@ -20,8 +21,8 @@ const Navlink = (props: NavlinkOwnProps) => {
 const Navbar = () => {
   return (
     <div className="navbar-container">
-      <Navlink name="Home" link={"/"} />
-      <Navlink name="New item" link={"/new"} />
+      <Navlink name="Home" link="/" />
+      <Navlink name="New item" link="/new" />
     </div>
   );
 };

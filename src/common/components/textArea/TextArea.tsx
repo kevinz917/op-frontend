@@ -18,7 +18,7 @@ export default class TextArea extends PureComponent<textAreOwnProps> {
         onChange={onChange}
         className="textarea-main"
         style={{ width: `${width}px`, height: `${height}px` }}
-      ></textarea>
+      />
     );
   }
 }

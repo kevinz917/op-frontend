@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import Button from "../../common/components/button/Button";
 import Input from "../../common/components/Input/Input";
 import Select from "../../common/components/SingleSelect/Select";
@@ -7,13 +8,25 @@ import TextArea from "../../common/components/textArea/TextArea";
 import { formatValueLabelPair } from "./createItemHelpers";
 import "./newitem.scss";
 import { categoryOptions, frequencyOptions } from "./newItemStrings";
+import createItemAction from "../../redux/actions/createItemAction";
 
-interface newItemOwnProps {}
+interface newItemOwnProps {
+  setSavingTrue: () => void;
+}
+
+const mapDispatchToActions = {
+  setSavingTrue: () => createItemAction.setSavingTrue(),
+};
 
 const NewItem = (props: newItemOwnProps) => {
   const [name, setName] = useState("");
   const [priority, setPriority] = useState("");
   const [notes, setNotes] = useState("");
+
+  useEffect(() => {
+    const { setSavingTrue } = props;
+    setSavingTrue();
+  }, []);
 
   return (
     <div className="home-container">
@@ -49,4 +62,5 @@ const NewItem = (props: newItemOwnProps) => {
     </div>
   );
 };
-export default NewItem;
+
+export default connect(null, mapDispatchToActions)(NewItem);
