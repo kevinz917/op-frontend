@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import Button from "../../common/components/button/Button";
-import Input from "../../common/components/Input/Input";
-import Select from "../../common/components/SingleSelect/Select";
-import Spacer from "../../common/components/spacer/Spacer";
-import TextArea from "../../common/components/textArea/TextArea";
-import { formatValueLabelPair } from "./createItemHelpers";
-import "./newitem.scss";
-import { categoryOptions, frequencyOptions } from "./newItemStrings";
-import createItemAction from "../../redux/actions/createItemAction";
+import { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import Button from '../../common/components/button/Button';
+import Input from '../../common/components/Input/Input';
+import Select from '../../common/components/SingleSelect/Select';
+import Spacer from '../../common/components/spacer/Spacer';
+import TextArea from '../../common/components/textArea/TextArea';
+import { formatValueLabelPair } from './createItemHelpers';
+import './newitem.scss';
+import { categoryOptions, frequencyOptions } from './newItemStrings';
+import createItemAction from '../../redux/actions/createItemAction';
 
 interface newItemOwnProps {
   setSavingTrue: () => void;
@@ -19,9 +19,9 @@ const mapDispatchToActions = {
 };
 
 const NewItem = (props: newItemOwnProps) => {
-  const [name, setName] = useState("");
-  const [priority, setPriority] = useState("");
-  const [notes, setNotes] = useState("");
+  const [name, setName] = useState('');
+  const [priority, setPriority] = useState('');
+  const [notes, setNotes] = useState('');
 
   useEffect(() => {
     const { setSavingTrue } = props;
@@ -38,19 +38,11 @@ const NewItem = (props: newItemOwnProps) => {
       </div>
       <div className="name-input-container">
         <div className="body2 title-input-text">Notes</div>
-        <TextArea
-          value={notes}
-          onChange={(e) => setNotes(e.target.value)}
-          height={80}
-          width={400}
-        />
+        <TextArea value={notes} onChange={(e) => setNotes(e.target.value)} height={80} width={400} />
       </div>
       <div className="name-input-container">
         <div className="body2 title-input-text">Category</div>
-        <Select
-          options={formatValueLabelPair(categoryOptions)}
-          placeholder="Choose category"
-        />
+        <Select options={formatValueLabelPair(categoryOptions)} placeholder="Choose category" />
       </div>
       <div className="name-input-container">
         <div className="body2 title-input-text">Frequency</div>

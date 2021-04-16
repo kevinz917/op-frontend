@@ -1,9 +1,9 @@
-import React from "react";
-import classNames from "classnames";
-import { PureComponent } from "react";
-import ReactSelect from "react-select";
-import { valueLabel } from "../../types/baseTypes";
-import "./select.scss";
+import React from 'react';
+import classNames from 'classnames';
+import { PureComponent } from 'react';
+import ReactSelect from 'react-select';
+import { valueLabel } from '../../types/baseTypes';
+import './select.scss';
 
 interface selectOwnProps {
   options: valueLabel[];
@@ -16,7 +16,7 @@ export default class Select extends PureComponent<selectOwnProps> {
   render() {
     const { options, placeholder, menuIsOpen, className } = this.props;
 
-    const selectClassNames = classNames("react-select-container", {
+    const selectClassNames = classNames('react-select-container', {
       className: className,
     });
 

@@ -1,5 +1,5 @@
-import React from "react";
-import "./input.scss";
+import React from 'react';
+import './input.scss';
 
 interface inputOwnProps {
   value: string;

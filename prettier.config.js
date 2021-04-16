@@ -1,13 +1,13 @@
 module.exports = {
   printWidth: 120,
-  singleQuote: false,
-  trailingComma: "es5",
+  singleQuote: true,
+  trailingComma: 'es5',
   jsxBracketSameLine: false,
   semi: true,
-  arrowParens: "always",
+  arrowParens: 'always',
   overrides: [
     {
-      files: "*.scss",
+      files: '*.scss',
       options: {
         singleQuote: false,
       },

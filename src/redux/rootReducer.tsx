@@ -1,9 +1,7 @@
-import { combineReducers } from "redux";
-import { createItemReducer } from "./reducers/createitemReducer";
-import { generalReducer } from "./reducers/generalReducer";
+import { combineReducers } from 'redux';
+import { createItemReducer } from './reducers/createitemReducer';
 
 const MasterReducer = combineReducers({
-  general: generalReducer,
   newItem: createItemReducer,
 });
 

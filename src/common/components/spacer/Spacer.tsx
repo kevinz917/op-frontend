@@ -1,5 +1,3 @@
-import React from "react";
-
 const pxForSpacerSize: Record<string, number> = {
   small: 8,
   medium: 12,

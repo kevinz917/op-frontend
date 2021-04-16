@@ -1,13 +1,12 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home/Home";
-import NewItem from "./pages/NewItem/NewItem";
-import "./common/styles/colors.scss";
-import "./common/styles/typography.scss";
-import "./common/styles/overall.scss";
-import Navbar from "./components/Navbar/Navbar";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import NewItem from './pages/NewItem/NewItem';
+import './common/styles/colors.scss';
+import './common/styles/typography.scss';
+import './common/styles/overall.scss';
+import Navbar from './components/Navbar/Navbar';
 
-function App() {
+const App = () => {
   return (
     <div className="overall-page-container">
       <Router>
@@ -19,6 +18,6 @@ function App() {
       </Router>
     </div>
   );
-}
+};
 
 export default App;

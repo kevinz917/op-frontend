@@ -1,6 +1,6 @@
-import React from "react";
-import { PureComponent } from "react";
-import "./textarea.scss";
+import React from 'react';
+import { PureComponent } from 'react';
+import './textarea.scss';
 
 interface textAreOwnProps {
   value: string;
@@ -17,7 +17,7 @@ export default class TextArea extends PureComponent<textAreOwnProps> {
         value={value}
         onChange={onChange}
         className="textarea-main"
-        style={{ width: `${width}px`, height: `${height}px` }}
+        style={{ width: `${width!}px`, height: `${height!}px` }}
       />
     );
   }

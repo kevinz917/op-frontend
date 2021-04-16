@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./navbar.scss";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './navbar.scss';
 
 interface NavlinkOwnProps {
   link: string;

@@ -40,7 +40,7 @@
       }
     ],
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
-    "quotes": [2, "double", { "avoidEscape": true }],
+    "quotes": [2, "single", { "avoidEscape": true }],
     "no-use-before-define": "off",
     "no-unused-vars": "warn",
     "object-curly-newline": "off",
@@ -54,6 +54,8 @@
     "import/prefer-default-export": "off",
     "no-param-reassign": "off",
     "prefer-destructuring": "warn",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "react/react-in-jsx-scope": "off",
+    "max-len": ["error", { "code": 120 }]
   }
 }
