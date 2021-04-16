@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { PureComponent } from 'react';
 import './textarea.scss';
 
@@ -10,7 +10,7 @@ interface textAreOwnProps {
 }
 
 export default class TextArea extends PureComponent<textAreOwnProps> {
-  render() {
+  render(): ReactElement {
     const { value, onChange, width, height } = this.props;
     return (
       <textarea
