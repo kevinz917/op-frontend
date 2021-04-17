@@ -1,15 +1,23 @@
+import axios from 'axios';
 import { call, delay, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { Action } from '../../common/types/Action';
 import createItemActions, { CREATE_ITEM_ACTIONS } from '../actions/createItemAction';
+import api from '../../util/api/apiFactory';
 
+type mockApiReturnObject = any;
 // test watcher
-function* testing(action: any) {
+function* testing(action: Action): Generator {
   try {
-    yield delay(1000);
-    // call action
+    yield delay(800);
+    const res: any = yield call(
+      api.get,
+      'tr4velapp.azurewebsites.net/api/itinerary/607a55049279d5001bb7e4c5'
+    ) as mockApiReturnObject;
+
+    console.log(res.data);
     yield put(createItemActions.setSagaFetchedTrue());
-    console.log(action);
   } catch (e) {
-    // console.log('Mock event failure');
+    console.log('Failed');
   }
 }
 
