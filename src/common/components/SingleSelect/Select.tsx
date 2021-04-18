@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames';
 import { PureComponent } from 'react';
 import ReactSelect from 'react-select';
@@ -10,11 +9,12 @@ interface selectOwnProps {
   placeholder?: string;
   menuIsOpen?: boolean;
   className?: string;
+  onChange?: any;
 }
 
 export default class Select extends PureComponent<selectOwnProps> {
   render() {
-    const { options, placeholder, menuIsOpen, className } = this.props;
+    const { options, placeholder, menuIsOpen, className, onChange } = this.props;
 
     const selectClassNames = classNames('react-select-container', {
       className: className,
@@ -28,6 +28,7 @@ export default class Select extends PureComponent<selectOwnProps> {
           classNamePrefix="react-select"
           placeholder={placeholder}
           menuIsOpen={menuIsOpen}
+          onChange={onChange}
         />
       </div>
     );

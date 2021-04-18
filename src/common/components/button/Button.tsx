@@ -11,11 +11,12 @@ interface buttonOwnProps {
   href?: string;
   width?: number;
   icon?: string;
+  onClick?: () => void;
 }
 
 export default class Button extends PureComponent<buttonOwnProps> {
   render() {
-    const { children, disabled, secondary, type, href, width, ...otherProps } = this.props;
+    const { children, disabled, secondary, type, href, width, onClick, ...otherProps } = this.props;
 
     const cssClasses = classNames('button-default', {
       'button-secondary': secondary,
@@ -31,7 +32,14 @@ export default class Button extends PureComponent<buttonOwnProps> {
     }
 
     return (
-      <button disabled={disabled} className={cssClasses} {...otherProps} style={{ width: width }} type="button">
+      <button
+        disabled={disabled}
+        className={cssClasses}
+        {...otherProps}
+        style={{ width: width }}
+        type="button"
+        onClick={onClick}
+      >
         {children}
       </button>
     );
