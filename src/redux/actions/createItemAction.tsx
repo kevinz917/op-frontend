@@ -19,6 +19,9 @@ export const CREATE_ITEM_ACTIONS = {
   SAVE_ITEM: 'SAVE_ITEM',
   SAVE_ITEM_SUCCESS: 'SAVE_ITEM_SUCCESS',
   SAVE_ITEM_FAIL: 'SAVE_ITEM_FAIL',
+
+  GET_ALL_ITEMS: 'GET_ALL_ITEMS',
+  GET_ALL_ITEMS_SUCCESS: 'GET_ALL_ITEMS_SUCCESS',
 };
 
 export default {
@@ -55,5 +58,13 @@ export default {
   },
   saveNewItemSuccess(): Action {
     return actionCreator(CREATE_ITEM_ACTIONS.SAVE_ITEM_SUCCESS);
+  },
+
+  // get all items
+  getAllItems(): Action {
+    return actionCreator(CREATE_ITEM_ACTIONS.GET_ALL_ITEMS);
+  },
+  getAllItemsSuccess(items: any): Action {
+    return actionCreator(CREATE_ITEM_ACTIONS.GET_ALL_ITEMS_SUCCESS, { items });
   },
 };

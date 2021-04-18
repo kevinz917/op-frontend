@@ -5,15 +5,11 @@ import api from '../../util/api/apiFactory';
 import { newItemSelector } from '../selectors/createItemSelector';
 import { newItemSaveValidator } from '../../pages/NewItem/createItemHelpers';
 
-type mockApiReturnObject = any;
 // test watcher
-function* testing(action: Action): Generator {
+function* testing(): Generator {
   try {
     yield delay(800);
-    const res: any = yield call(
-      api.get,
-      'tr4velapp.azurewebsites.net/api/itinerary/607a55049279d5001bb7e4c5'
-    ) as mockApiReturnObject;
+    const res: any = yield call(api.get, 'tr4velapp.azurewebsites.net/api/itinerary/607a55049279d5001bb7e4c5');
 
     console.log(res.data);
     yield put(createItemActions.setSagaFetchedTrue());
@@ -48,19 +44,28 @@ function* watchTwoButtonClicks() {
   yield put(createItemActions.setSagaFetchedTrue());
 }
 
-function* saveItem(action: Action): Generator {
+function* saveItem(): Generator {
   try {
     const newItemState = yield select(newItemSelector);
     if (newItemSaveValidator(newItemState)) {
-      console.log('Fields validated');
-      // api save call
+      const savedItem = yield call(api.post, '/item/save', newItemState);
+      yield put(createItemActions.saveNewItemSuccess());
     }
+  } catch (e) {}
+}
+
+function* getAllItems(): Generator {
+  try {
+    const allItems: any = yield call(api.get, '/item/all');
+    yield put(createItemActions.getAllItemsSuccess(allItems.data.items));
   } catch (e) {}
 }
 
 function* myTestSaga() {
   yield takeLatest(CREATE_ITEM_ACTIONS.BEGIN_MOCK_FETCH, forkMaster);
-  yield takeLatest(CREATE_ITEM_ACTIONS.SAVE_ITEM, saveItem);
+
+  yield takeLatest(CREATE_ITEM_ACTIONS.SAVE_ITEM, saveItem); // save item
+  yield takeLatest(CREATE_ITEM_ACTIONS.GET_ALL_ITEMS, getAllItems); // get all items
 
   // watch for future actions
   yield takeEvery('*', watchTwoButtonClicks);

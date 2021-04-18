@@ -49,6 +49,7 @@ const NewItem = (props: newItemAllProps) => {
         <div className="body2 back-link">← Back</div>
       </Link>
       <hr />
+      <br />
       <div className="header2">New item</div>
       <Spacer size="xlarge" />
       <div className="name-input-container">

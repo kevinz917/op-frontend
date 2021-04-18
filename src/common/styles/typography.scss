@@ -1,6 +1,6 @@
 // main typography
+@import "./colors.scss"; // headers
 
-// headers
 .header1 {
   font-size: 28px;
   font-weight: medium;
@@ -12,8 +12,9 @@
 }
 
 .header3 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
+  margin-bottom: 6px;
 }
 
 // body
@@ -23,4 +24,8 @@
 
 .body2 {
   font-size: 16px;
+}
+
+.subtitle {
+  color: $grey400;
 }
