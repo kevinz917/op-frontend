@@ -4,6 +4,7 @@ import createItemActions, { CREATE_ITEM_ACTIONS } from '../actions/createItemAct
 import api from '../../util/api/apiFactory';
 import { newItemSelector } from '../selectors/createItemSelector';
 import { newItemSaveValidator } from '../../pages/NewItem/createItemHelpers';
+import history, { navigateTo } from '../../common/components/Router/history';
 
 // test watcher
 function* testing(): Generator {
@@ -24,15 +25,12 @@ function* forkMaster(): Generator {
     yield delay(1000);
     yield fork(forkWorker);
     yield fork(forkWorker);
-  } catch (e) {
-    console.log('Failed');
-  }
+  } catch (e) {}
 }
 
 function* forkWorker(): Generator {
   try {
     yield put(createItemActions.setSagaFetchedTrue());
-    console.log('Fork worker done');
   } catch (e) {}
 }
 
@@ -48,8 +46,9 @@ function* saveItem(): Generator {
   try {
     const newItemState = yield select(newItemSelector);
     if (newItemSaveValidator(newItemState)) {
-      const savedItem = yield call(api.post, '/item/save', newItemState);
+      yield call(api.post, '/item/save', newItemState);
       yield put(createItemActions.saveNewItemSuccess());
+      history.push('/');
     }
   } catch (e) {}
 }

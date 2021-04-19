@@ -6,6 +6,7 @@ import createItemAction from '../../redux/actions/createItemAction';
 import './home.scss';
 import ItemCard from '../../components/ItemCard/ItemCard';
 import { Item } from '../../common/types/Item';
+import history from '../../common/components/Router/history';
 
 interface homeMapStateProps {
   items: Item[];
@@ -43,7 +44,7 @@ const Home = (props: homeAllProps): ReactElement => {
         </Button>
       </div>
       {items.map((item: Item) => (
-        <ItemCard item={item} />
+        <ItemCard item={item} key={item._id} />
       ))}
     </div>
   );

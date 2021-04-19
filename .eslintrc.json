@@ -61,6 +61,7 @@
     "max-len": ["error", { "code": 200 }],
     "react/no-unused-prop-types": "warn",
     "no-plusplus": "off",
-    "no-empty": "warn"
+    "no-empty": "warn",
+    "no-underscore-dangle": "off"
   }
 }

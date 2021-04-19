@@ -1,23 +1,23 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch, withRouter } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import NewItem from './pages/NewItem/NewItem';
 
 import './common/styles/colors.scss';
 import './common/styles/typography.scss';
 import './common/styles/overall.scss';
-// import Navbar from './components/Navbar/Navbar';
+import history from './common/components/Router/history';
 
 const App = () => {
   return (
     <div className="overall-page-container">
-      <Router>
-        <Switch>
-          <div className="home-container">
-            <Route exact path="/new" component={NewItem} />
+      <div className="home-container">
+        <Router history={history}>
+          <Switch>
             <Route exact path="/" component={Home} />
-          </div>
-        </Switch>
-      </Router>
+            <Route exact path="/new" component={NewItem} />
+          </Switch>
+        </Router>
+      </div>
     </div>
   );
 };
