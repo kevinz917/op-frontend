@@ -3,11 +3,6 @@ import { valueLabel } from '../../common/types/baseTypes';
 import actionCreator from '../actionCreator';
 
 export const CREATE_ITEM_ACTIONS = {
-  IS_SAVING_TRUE: 'IS_SAVING_TRUE',
-  IS_SAVING_FALSE: 'IS_SAVING_FALSE',
-  SAGA_FETCHED: 'SAGA_FETCHED',
-  BEGIN_MOCK_FETCH: 'BEGIN_MOCK_FETCH',
-
   // fields
   NAME_FIELD_CHANGED: 'NAME_FIELD_CHANGED',
   NOTES_FIELD_CHANGED: 'NOTES_FIELD_CHANGED',
@@ -22,19 +17,11 @@ export const CREATE_ITEM_ACTIONS = {
 
   GET_ALL_ITEMS: 'GET_ALL_ITEMS',
   GET_ALL_ITEMS_SUCCESS: 'GET_ALL_ITEMS_SUCCESS',
+
+  POPULATE_ITEM_FIELDS: 'POPULATE_ITEM_FIELDS',
 };
 
 export default {
-  setSavingTrue(): Action {
-    return actionCreator(CREATE_ITEM_ACTIONS.IS_SAVING_TRUE);
-  },
-  setSagaFetchedTrue(): Action {
-    return actionCreator(CREATE_ITEM_ACTIONS.SAGA_FETCHED);
-  },
-  beginMockFetch(): Action {
-    return actionCreator(CREATE_ITEM_ACTIONS.BEGIN_MOCK_FETCH);
-  },
-
   // fields
   nameFieldChanged(name: string): Action {
     return actionCreator(CREATE_ITEM_ACTIONS.NAME_FIELD_CHANGED, name);
@@ -66,5 +53,15 @@ export default {
   },
   getAllItemsSuccess(items: any): Action {
     return actionCreator(CREATE_ITEM_ACTIONS.GET_ALL_ITEMS_SUCCESS, { items });
+  },
+
+  // populate fields
+  populateItemFields(item: any): Action {
+    return actionCreator(CREATE_ITEM_ACTIONS.POPULATE_ITEM_FIELDS, { item });
+  },
+
+  // clear field
+  clearItemFields(): Action {
+    return actionCreator(CREATE_ITEM_ACTIONS.CLEAR_NEW_ITEM_FIELDS);
   },
 };

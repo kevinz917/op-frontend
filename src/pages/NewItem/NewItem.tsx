@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import Button from '../../common/components/button/Button';
+import Button from '../../common/components/Button/Button';
 import Input from '../../common/components/Input/Input';
 import Select from '../../common/components/SingleSelect/Select';
-import Spacer from '../../common/components/spacer/Spacer';
+import Spacer from '../../common/components/Spacer/Spacer';
 import TextArea from '../../common/components/textArea/TextArea';
 import { formatValueLabelPair } from './createItemHelpers';
 import './newitem.scss';
@@ -11,9 +11,10 @@ import createItemAction from '../../redux/actions/createItemAction';
 import { Link } from 'react-router-dom';
 import { newItemSelector } from '../../redux/selectors/createItemSelector';
 import { valueLabel } from '../../common/types/baseTypes';
+import RenderIf from '../../common/components/RenderIf/RenderIf';
 
 interface newItemMapStateProps {
-  newItem: any;
+  item: any;
 }
 
 interface newItemDispatchProps {
@@ -26,7 +27,7 @@ interface newItemDispatchProps {
 
 const newItemMapStateToProps = (state: any) => {
   return {
-    newItem: newItemSelector(state),
+    item: newItemSelector(state),
   };
 };
 
@@ -41,7 +42,7 @@ const mapDispatchToActions = {
 type newItemAllProps = newItemDispatchProps & newItemMapStateProps;
 
 const NewItem = (props: newItemAllProps) => {
-  const { nameFieldChanged, notesFieldChanged, newItem, categoryFieldChanged, frequencyFieldChanged, saveItem } = props;
+  const { nameFieldChanged, notesFieldChanged, item, categoryFieldChanged, frequencyFieldChanged, saveItem } = props;
 
   return (
     <div>
@@ -50,15 +51,22 @@ const NewItem = (props: newItemAllProps) => {
       </Link>
       <hr />
       <br />
-      <div className="header2">New item</div>
+
+      <RenderIf value={window.location.pathname.includes('new')}>
+        <div className="header2">New item</div>
+      </RenderIf>
+      <RenderIf value={window.location.pathname.includes('edit')}>
+        <div className="header2">Edit item</div>
+      </RenderIf>
+
       <Spacer size="xlarge" />
       <div className="name-input-container">
         <div className="body2 title-input-text">Name</div>
-        <Input value={newItem.name} onChange={(e) => nameFieldChanged(e.target.value)} />
+        <Input value={item.name} onChange={(e) => nameFieldChanged(e.target.value)} />
       </div>
       <div className="name-input-container">
         <div className="body2 title-input-text">Notes</div>
-        <TextArea value={newItem.notes} onChange={(e) => notesFieldChanged(e.target.value)} height={80} width={400} />
+        <TextArea value={item.notes} onChange={(e) => notesFieldChanged(e.target.value)} height={80} width={400} />
       </div>
       <div className="name-input-container">
         <div className="body2 title-input-text">Category</div>
@@ -66,15 +74,21 @@ const NewItem = (props: newItemAllProps) => {
           options={formatValueLabelPair(categoryOptions)}
           placeholder="Choose category"
           onChange={categoryFieldChanged}
+          value={{ value: item.category, label: item.category }}
         />
       </div>
       <div className="name-input-container">
         <div className="body2 title-input-text">Frequency</div>
-        <Select options={frequencyOptions} onChange={frequencyFieldChanged} placeholder="Choose frequency" />
+        <Select
+          options={frequencyOptions}
+          onChange={frequencyFieldChanged}
+          placeholder="Choose frequency"
+          value={frequencyOptions.filter((option) => option.value === item.frequency)[0]}
+        />
       </div>
 
       <Spacer size="xlarge" />
-      <Button onClick={() => saveItem()}>Add item</Button>
+      <Button onClick={saveItem}>Save item</Button>
     </div>
   );
 };

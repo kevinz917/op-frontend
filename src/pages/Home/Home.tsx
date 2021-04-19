@@ -1,12 +1,13 @@
 import { ReactElement, useEffect } from 'react';
 import { connect } from 'react-redux';
-import Button from '../../common/components/button/Button';
+import Button from '../../common/components/Button/Button';
 import { itemsSelector } from '../../redux/selectors/createItemSelector';
 import createItemAction from '../../redux/actions/createItemAction';
 import './home.scss';
 import ItemCard from '../../components/ItemCard/ItemCard';
 import { Item } from '../../common/types/Item';
-import history from '../../common/components/Router/history';
+import Spacer from '../../common/components/Spacer/Spacer';
+import { Link } from 'react-router-dom';
 
 interface homeMapStateProps {
   items: Item[];
@@ -14,10 +15,12 @@ interface homeMapStateProps {
 
 interface homeMapDispatchProps {
   fetchItems: () => void;
+  setItemFields: (item: any) => void;
 }
 
 const mapDispatchToProps = {
   fetchItems: () => createItemAction.getAllItems(),
+  setItemFields: (item: any) => createItemAction.populateItemFields(item),
 };
 
 const mapStateToProps = (state: any) => {
@@ -29,7 +32,7 @@ const mapStateToProps = (state: any) => {
 type homeAllProps = homeMapStateProps & homeMapDispatchProps;
 
 const Home = (props: homeAllProps): ReactElement => {
-  const { items, fetchItems } = props;
+  const { items, fetchItems, setItemFields } = props;
 
   useEffect(() => {
     fetchItems();
@@ -43,8 +46,11 @@ const Home = (props: homeAllProps): ReactElement => {
           New item
         </Button>
       </div>
+      <Spacer size="large" />
       {items.map((item: Item) => (
-        <ItemCard item={item} key={item._id} />
+        <Link to={`/edit/${item._id}`}>
+          <ItemCard item={item} key={item._id} onClick={() => setItemFields(item)} />
+        </Link>
       ))}
     </div>
   );

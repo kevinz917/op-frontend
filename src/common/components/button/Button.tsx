@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import './button.scss';
@@ -15,7 +15,7 @@ interface buttonOwnProps {
 }
 
 export default class Button extends PureComponent<buttonOwnProps> {
-  render() {
+  render(): ReactElement {
     const { children, disabled, secondary, type, href, width, onClick, ...otherProps } = this.props;
 
     const cssClasses = classNames('button-default', {
@@ -32,14 +32,7 @@ export default class Button extends PureComponent<buttonOwnProps> {
     }
 
     return (
-      <button
-        disabled={disabled}
-        className={cssClasses}
-        {...otherProps}
-        style={{ width: width }}
-        type="button"
-        onClick={onClick}
-      >
+      <button className={cssClasses} style={{ width: width }} type="button" onClick={onClick} {...otherProps}>
         {children}
       </button>
     );

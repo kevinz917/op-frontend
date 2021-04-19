@@ -1,11 +1,11 @@
 import { ReactElement, ReactNode } from 'react';
 
 interface RenderIfProps {
-  value: boolean;
-  children: ReactElement;
+  value: any;
+  children: any;
 }
 
-const RenderIf = (props: RenderIfProps): ReactNode | null => {
+const RenderIf = (props: RenderIfProps): ReactElement | null => {
   return props.value ? props.children : null;
 };
 
