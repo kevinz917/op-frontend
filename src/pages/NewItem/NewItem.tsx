@@ -3,7 +3,7 @@ import Button from '../../common/components/Button/Button';
 import Input from '../../common/components/Input/Input';
 import Select from '../../common/components/SingleSelect/Select';
 import Spacer from '../../common/components/Spacer/Spacer';
-import TextArea from '../../common/components/textArea/TextArea';
+import TextArea from '../../common/components/Textarea/TextArea';
 import { formatValueLabelPair } from './createItemHelpers';
 import './newitem.scss';
 import { categoryOptions, frequencyOptions } from './newItemStrings';

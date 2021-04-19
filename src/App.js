@@ -11,7 +11,7 @@ import history from './common/components/Router/history';
 const App = () => {
   return (
     <div className="overall-page-container">
-      <PageLoadingBar value={true} />
+      <PageLoadingBar />
       <div className="home-container">
         <Router history={history}>
           <Switch>
