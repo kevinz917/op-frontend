@@ -1,8 +1,9 @@
-# Catcher
+# OP Frontend
 
-A simple reminder app for people and ideas
+A comprehensive front end template for scalable applications.
 
 ## Stack
 
-- TS
-- Redux, Redux Saga
+- Typescript
+- Redux + Redux Saga for data flow
+- Sass
