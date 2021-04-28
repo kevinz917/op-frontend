@@ -3,8 +3,8 @@ import { PureComponent } from 'react';
 import './textarea.scss';
 
 interface textAreOwnProps {
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   height?: number;
   width?: number;
 }

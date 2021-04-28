@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BASE } from '../base';
+import { BASE } from './base';
 
 const api = axios.create();
 

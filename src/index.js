@@ -1,9 +1,8 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { PROD } from './util/base';
+import { PROD } from './common/api/base';
 import { createStore, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import MasterReducer from './redux/rootReducer';

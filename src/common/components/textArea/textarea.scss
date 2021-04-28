@@ -8,12 +8,9 @@
   font-size: 16px;
   font-family: inherit !important;
   transition: 0.05s;
+  width: 300px;
+  height: 100px;
 }
-
-// .textarea-main:hover {
-//   background-color: $grey200;
-//   transition: 0.05s;
-// }
 
 .textarea-main:focus {
   outline: none;

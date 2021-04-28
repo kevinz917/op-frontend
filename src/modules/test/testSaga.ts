@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import testActions, { TEST_ACTIONS } from './testActionCreator';
-import api from '../../util/api/apiFactory';
+import api from '../../common/api/apiFactory';
 
 // Mock generator function
 function* fetchMockItems(): Generator {

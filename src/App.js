@@ -11,13 +11,11 @@ const App = () => {
   return (
     <div className="overall-page-container">
       <PageLoadingBar />
-      <div className="home-container">
-        <Router history={history}>
-          <Switch>
-            <Route exact path="/test" component={Test} />
-          </Switch>
-        </Router>
-      </div>
+      <Router history={history}>
+        <Switch>
+          <Route exact path="/test" component={Test} />
+        </Switch>
+      </Router>
     </div>
   );
 };
