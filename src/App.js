@@ -2,6 +2,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import NewItem from './pages/NewItem/NewItem';
 import PageLoadingBar from './common/components/PageLoadingBar/PageLoadingBar';
+import Test from './modules/test/test';
 
 import './common/styles/colors.scss';
 import './common/styles/typography.scss';
@@ -15,6 +16,7 @@ const App = () => {
       <div className="home-container">
         <Router history={history}>
           <Switch>
+            <Route exact path="/test" component={Test} />
             <Route exact path="/" component={Home} />
             <Route exact path="/new" component={NewItem} />
             <Route path="/edit/:id" component={NewItem} />
