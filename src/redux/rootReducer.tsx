@@ -1,12 +1,8 @@
 import { combineReducers } from 'redux';
-import { createItemReducer } from './reducers/createitemReducer';
-import { homeReducer } from './reducers/homeReducer';
-import { globalReducer } from './reducers/globalReducer';
+import { testReducer } from '../modules/test/testReducer';
 
 const MasterReducer = combineReducers({
-  global: globalReducer,
-  newItem: createItemReducer,
-  home: homeReducer,
+  test: testReducer,
 });
 
 export default MasterReducer;

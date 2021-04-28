@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { isNil } from 'lodash';
-import { PureComponent } from 'react';
+import { PureComponent, ReactElement } from 'react';
 import ReactSelect from 'react-select';
-import { valueLabel } from '../../types/baseTypes';
+import { valueLabel } from '../../types/globalTypes';
 import './select.scss';
 
 interface selectOwnProps {
@@ -15,7 +15,7 @@ interface selectOwnProps {
 }
 
 export default class Select extends PureComponent<selectOwnProps> {
-  render() {
+  render(): ReactElement {
     const { options, placeholder, menuIsOpen, className, onChange, value } = this.props;
 
     const selectClassNames = classNames('react-select-container', {
@@ -31,7 +31,7 @@ export default class Select extends PureComponent<selectOwnProps> {
           placeholder={placeholder}
           menuIsOpen={menuIsOpen}
           onChange={onChange}
-          value={isNil(value) ? null : value!.value ? value : null}
+          value={isNil(value) ? null : value?.value ? value : null}
         />
       </div>
     );

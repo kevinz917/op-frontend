@@ -10,24 +10,26 @@ interface mapStateToPropsProps {
 
 const mapStateToProps = (state: any): mapStateToPropsProps => {
   return {
-    globalLoadingState: state.global.loading,
+    globalLoadingState: state.test.loading,
   };
 };
 
 interface mapDispatchProps {
   setLoadingTrue: () => void;
+  fetchMockItem: () => void;
 }
 
 const mapDispatchToProps: mapDispatchProps = {
   setLoadingTrue: () => testAction.setLoadingTrue(),
+  fetchMockItem: () => testAction.fetchMockItem(),
 };
 
 type testComponentAllProps = mapStateToPropsProps & mapDispatchProps;
 
 const Test = (props: testComponentAllProps): ReactElement => {
   useEffect(() => {
-    const { setLoadingTrue } = props;
-    setLoadingTrue();
+    const { fetchMockItem } = props;
+    fetchMockItem();
   }, []);
 
   return <div>Welcome to the test page ~ </div>;
