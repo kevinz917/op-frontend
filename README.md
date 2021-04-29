@@ -8,4 +8,5 @@
 
 - Typescript
 - Redux + Redux Saga for data flow
+- Redux selectors
 - SASS / CSS
