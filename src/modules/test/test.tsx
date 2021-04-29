@@ -4,6 +4,7 @@ import testAction from './testActionCreator';
 import { GlobalReducerState } from '../../common/types/globalStateType';
 import './test.scss';
 import Switch from '../../common/components/Switch/Switch';
+import Checkbox from '../../common/components/Checkbox/Checkbox';
 
 // This page is to demonstrate basic redux / saga capabilities as well as components.
 
@@ -36,6 +37,7 @@ const Test = (props: testComponentAllProps): ReactElement => {
   }, []);
 
   const [switchValue, setSwitchValue] = useState(false);
+  const [checkValue, setCheckValue] = useState(false);
 
   return (
     <div className="page-container">
@@ -47,6 +49,7 @@ const Test = (props: testComponentAllProps): ReactElement => {
       <div>- Used to test components</div>
       <br />
       <Switch checked={switchValue} onChange={() => setSwitchValue(!switchValue)} label="Hello" />
+      <Checkbox label="Check me" checked={checkValue} onChange={() => setCheckValue(!checkValue)} />
     </div>
   );
 };
