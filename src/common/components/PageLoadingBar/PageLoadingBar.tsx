@@ -9,7 +9,7 @@ interface pageLoadingStateProps {
 
 const mapStateToProps = (state: any) => {
   return {
-    value: state.global.loading,
+    value: state.test.loading,
   };
 };
 
