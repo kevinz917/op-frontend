@@ -1,6 +1,6 @@
-# OP Frontend
+# Kevin's Frontend Template 🧊
 
-A comprehensive front end template for scalable applications.
+A comprehensive, flexible front end template for scalable web apps. 
 
 ## Architecture
 
