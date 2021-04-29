@@ -2,8 +2,8 @@
 
 A comprehensive front end template for scalable applications.
 
-## Stack
+## Architecture
 
 - Typescript
 - Redux + Redux Saga for data flow
-- Sass
+- SASS / CSS
